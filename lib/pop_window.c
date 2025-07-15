@@ -1,8 +1,8 @@
 #include "minilibx-linux/mlx.h"
 #include <stdlib.h>
 
-#define WIDTH	400
-#define	HEIGHT	400
+#define WIDTH	1920
+#define	HEIGHT	1080
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 	if (mlx_connection == NULL)
 		return (1);
 	
-	mlx_window = mlx_new_window(mlx_connection, HEIGHT, WIDTH, "My window");
+	mlx_window = mlx_new_window(mlx_connection, WIDTH, HEIGHT, "My window");
 	if (NULL == mlx_window)
 	{
 		mlx_destroy_display(mlx_connection);
