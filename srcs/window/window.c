@@ -2,7 +2,6 @@
 
 void	ft_window_init(t_data *data)
 {
-	ft_memset(&data, 0, sizeof(t_data));
 	data->win_height = 1080;
 	data->win_width = 1920;
 	data->mlx = mlx_init();
