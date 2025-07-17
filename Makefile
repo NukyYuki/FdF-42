@@ -16,6 +16,11 @@ LIBFTDIR	=	lib/libft
 SRCS	=	srcs/fdf.c \
 			srcs/window/window.c \
 			srcs/free_data/free_data.c \
+			srcs/draw/lines.c \
+			srcs/draw/lines_utils.c \
+			srcs/draw/render.c \
+			srcs/map_parse/map.c \
+			srcs/map_parse/map_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 

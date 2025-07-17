@@ -1,82 +1,86 @@
 #include "../../fdf.h"
 
-void	draw_line(int x0, int y0, int x1, int y1)
+void	draw_line(t_data *data, t_line *line)
 {
 	int	dx;
 	int	dy;
 
-	dx = x1 - x0;
-	dy = y1 - y0;
-	if (ft_abs(x1-x0) > abs(y1-y0)
-		draw_lineH(x0, y0, x1, y1, dx, dy);
+	dx = line->x1 - line->x0;
+	dy = line->y1 - line->y0;
+	if (ft_abs(line->x1-line->x0) > abs(line->y1-line->y0))
+		draw_lineH(data, line, dx, dy);
 	else
-		draw_lineV(x0, y0m x1, y1, dx, dy);
+		draw_lineV(data, line, dx, dy);
 }
 
-void	draw_lineH(int x0, int y0, int x1, int y1, int dx, int dy)
+void	draw_lineH(t_data *data, t_line *line, int dx, int dy)
 {
 	int	dir;
 	int	step;
 	int y;
+	int x;
 
 	dir = 1;
-	if (x0 > x1)
+	if (line->x0 > line->x1)
 	{
-		ft_swap(&x0, &x1);
-		ft_swap(&y0, &y1);
+		ft_swap(&line->x0, &line->x1);
+		ft_swap(&line->y0, &line->y1);
 	}
-	dx = x1 - x0;
-	dy = y1 - y0;
+	dx = line->x1 - line->x0;
+	dy = line->y1 - line->y0;
 	if (dy < 0)
 		dir = -1;
 	dy *= dir;
 	if (dx != 0)
 	{
-		y = y0;
+		y = line->y0;
 		step = (2 * dy) - dx;
-		while ()
+		x = line->x0;
+		while (x++ <= line->x1)
 		{
-			mlx_pixel_put()
+			ft_put_pixel(data, x, y, line->color);
 			if (step >= 0)
 			{
 				y += dir;
-				p = p - (2 * dx)
+				step -= (2 * dx);
 			}
-			p = p + (2 * dy);
+			step += (2 * dy);
 		}
 	}
 }
 
-void	draw_lineV(int x0, int y0, int x1, int y1, int dx, int dy)
+void	draw_lineV(t_data *data, t_line *line, int dx, int dy)
 {
 	int	dir;
 	int	step;
 	int x;
+	int y;
 
 	dir = 1;
-	if (y0 > y1)
+	if (line->y0 > line->y1)
 	{
-		ft_swap(&x0, &x1);
-		ft_swap(&y0, &y1);
+		ft_swap(&line->x0, &line->x1);
+		ft_swap(&line->y0, &line->y1);
 	}
-	dx = x1 - x0;
-	dy = y1 - y0;
+	dx = line->x1 - line->x0;
+	dy = line->y1 - line->y0;
 	if (dx < 0)
 		dir = -1;
 	dx *= dir;
 	if (dy != 0)
 	{
-		x = x0;
+		x = line->x0;
 		step = (2 * dx) - dy;
-		while ()
+		y = line->y0;
+		while (y++ <= line->y1)
 		{
-			mlx_pixel_put()
+			ft_put_pixel(data, x, y, line->color);
 			if (step >= 0)
 			{
 				x += dir;
-				p = p - (2 * dy)
+				step -= (2 * dy);
 			}
-			p = p + (2 * dx);
+			step += (2 * dx);
 		}
 	}
 }

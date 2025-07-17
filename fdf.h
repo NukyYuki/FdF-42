@@ -15,6 +15,7 @@
 # include "includes/structs.h"
 # include "includes/window.h"
 # include "includes/map.h"
+# include "includes/draw.h"
 
 void	ft_free_data_struct(t_data *data);
 void	free_char_arr(char **arr);

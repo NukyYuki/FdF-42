@@ -5,7 +5,7 @@ void	ft_map_init(t_data *data, char *file)
 {
 	int	fd;
 
-	data->map == ft_calloc(1, sizeof(t_map));
+	data->map = ft_calloc(1, sizeof(t_map));
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (ft_free_data_struct(data));

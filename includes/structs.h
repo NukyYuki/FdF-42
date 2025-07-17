@@ -7,6 +7,15 @@ typedef struct	s_coordinate
 	int	y;
 }		t_coordinate;
 
+typedef struct s_line
+{
+	int	x0;
+	int y0;
+	int x1;
+	int y1;
+	int	color;
+}		t_line;
+
 typedef struct	s_point
 {
 	int	x;
@@ -32,7 +41,7 @@ typedef struct	s_data
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
-	t_map	map;
+	t_map	*map;
 }			t_data;
 
 #endif
