@@ -30,6 +30,7 @@ int	ft_render_map(t_data *data)
 			x++;
 		}
 		y++;
+		x = 0;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 	return (0);
