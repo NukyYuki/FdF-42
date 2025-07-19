@@ -1,7 +1,7 @@
 #ifndef	STRUCTS_H
 # define STRUCTS_H
 
-typedef struct	s_coordinate
+typedef struct	s_screen_coordinate
 {
 	int	x;
 	int	y;
@@ -30,6 +30,17 @@ typedef struct	s_map
 	int		map_y;
 }			t_map;
 
+typedef struct s_view
+{
+	int		x_offset;
+	int		y_offset;
+	int		zoom;
+	float 	angle_x;
+	float	angle_y;
+	float	angle_z;
+	float	height_scale;
+}			t_view;
+
 typedef struct	s_data
 {
 	void	*mlx;
@@ -42,6 +53,7 @@ typedef struct	s_data
 	int		line_lenght;
 	int		endian;
 	t_map	*map;
+	t_view	view;
 }			t_data;
 
 #endif

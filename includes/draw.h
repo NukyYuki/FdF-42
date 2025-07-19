@@ -1,7 +1,7 @@
 #ifndef DRAW_H
 # define DRAW_H
 
-void	ft_render_map(t_data *data);
+int		ft_render_map(t_data *data);
 void	draw_line(t_data *data, t_line *line);
 void	draw_lineH();
 void	draw_lineV();

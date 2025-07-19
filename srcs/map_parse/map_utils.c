@@ -8,13 +8,12 @@ void	ft_map_size(t_data *data, int file)
 	int		y;
 
 	x = 0;
-	y = -1;
+	y = 0;
 	map_line = get_next_line(file);
 	data->map->map_x = 0;
 	while (map_line)
 	{
 		map_points = ft_split(map_line, ' ');
-		y++;
 		while (map_points[x])
 			x++;
 		if (data->map->map_x < x)
@@ -22,6 +21,7 @@ void	ft_map_size(t_data *data, int file)
 		x = 0;
 		free(map_line);
 		map_line = get_next_line(file);
+		y++;
 	}
 	data->map->map_y = y;
 	free(map_line);
