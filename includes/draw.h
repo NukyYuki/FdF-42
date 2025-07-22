@@ -17,5 +17,8 @@ int		ft_max(int a, int b);
 //	color+refresh
 void	set_background(t_data *data);
 void	draw_background(t_data *data, int color);
+int		interpolate_color(int begin, int end, float percent);
+void	get_color(t_data *data, t_line *line, int z0, int z1);
+float	ft_get_percent(int z, int z_min, int z_max);
 
 #endif

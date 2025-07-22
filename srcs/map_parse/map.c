@@ -18,5 +18,6 @@ void	ft_map_init(t_data *data, char *file)
 	if (fd == -1)
 		return (ft_free_data_struct(data));
 	ft_map_get_points(data, fd);
+	ft_get_z(data);
 	close(fd);
 }

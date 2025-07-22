@@ -81,3 +81,28 @@ void	ft_map_get_points(t_data *data, int fd)
 		map_line = get_next_line(fd);
 	}
 }
+
+void	ft_get_z(t_data *data)
+{
+	int	x;
+	int y;
+	int z;
+	
+	y = 0;
+	data->map->max_z = INT_MIN;
+	data->map->min_z = INT_MAX;
+	while (y < data->map->map_y)
+	{
+		x = 0;
+		while (x < data->map->map_x)
+		{
+			z = data->map->map_points[y][x].z;
+			if (z < data->map->min_z)
+				data->map->min_z = z;
+			if (z > data->map->max_z)
+				data->map->max_z = z;
+			x++;
+		}
+		y++;
+	}
+}

@@ -19,7 +19,9 @@ typedef struct s_line
 	int y0;
 	int x1;
 	int y1;
-	int	color;
+	int	color_start;
+	int	color_end;
+	int color;
 }		t_line;
 
 typedef struct	s_point
@@ -38,6 +40,8 @@ typedef struct	s_map
 	int		min_x;
 	int		max_y;
 	int		min_y;
+	int		max_z;
+	int		min_z;
 	int		map_center_x;
 	int		map_center_y;
 }			t_map;
