@@ -10,6 +10,7 @@
 # include <stddef.h>
 # include <math.h>
 # include <fcntl.h>
+# include <limits.h>
 
 // Custom headers
 # include "includes/structs.h"
@@ -17,6 +18,7 @@
 # include "includes/map.h"
 # include "includes/draw.h"
 # include "includes/view.h"
+# include "includes/input.h"
 
 void	ft_free_data_struct(t_data *data);
 void	free_char_arr(char **arr);

@@ -1,12 +1,21 @@
 #ifndef DRAW_H
 # define DRAW_H
 
-int		ft_render_map(t_data *data);
+//	drawing
+int		ft_render_iso(t_data *data);
+int		ft_render_orto(t_data *data);
 void	draw_line(t_data *data, t_line *line);
-void	draw_lineH();
-void	draw_lineV();
+void	draw_lineH(t_data *data, t_line *line, int dx, int dy);
+void	draw_lineV(t_data *data, t_line *line, int dx, int dy);
+void	ft_put_pixel(t_data *data, int x, int y, int color);
+int		ft_render_loop(t_data *data);
+
+//	utils
 int		ft_abs(int value);
 int		ft_max(int a, int b);
-void	ft_put_pixel(t_data *data, int x, int y, int color);
+
+//	color+refresh
+void	set_background(t_data *data);
+void	draw_background(t_data *data, int color);
 
 #endif

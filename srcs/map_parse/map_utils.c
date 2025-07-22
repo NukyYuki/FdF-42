@@ -20,6 +20,7 @@ void	ft_map_size(t_data *data, int file)
 			data->map->map_x = x;
 		x = 0;
 		free(map_line);
+		free_char_arr(map_points);
 		map_line = get_next_line(file);
 		y++;
 	}

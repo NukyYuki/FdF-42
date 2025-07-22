@@ -18,7 +18,7 @@ void	ft_free_data_struct(t_data *data)
 	mlx_destroy_display(data->mlx);
 	if(data->mlx)
 		free(data->mlx);
-	exit(1);
+	exit(0);
 }
 
 void	free_char_arr(char **arr)

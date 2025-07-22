@@ -20,9 +20,13 @@ SRCS	=	srcs/fdf.c \
 			srcs/draw/lines_utils.c \
 			srcs/draw/render.c \
 			srcs/draw/projection.c \
+			srcs/draw/color.c \
+			srcs/draw/loop.c \
 			srcs/map_parse/map.c \
 			srcs/map_parse/map_utils.c \
-			srcs/view/view.c
+			srcs/view/view.c \
+			srcs/input/input.c \
+			srcs/input/reset.c
 
 OBJS	=	$(SRCS:.c=.o)
 

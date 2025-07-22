@@ -13,4 +13,5 @@ void	ft_window_init(t_data *data)
 	data->img = mlx_new_image(data->mlx, data->win_width, data->win_height);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_lenght,
 									&data->endian);
+	data->projection = ISO;
 }
