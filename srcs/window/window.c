@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 11:24:57 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/23 11:28:16 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../fdf.h"
 
 void	ft_window_init(t_data *data)
@@ -7,11 +19,12 @@ void	ft_window_init(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		exit(1);
-	data->mlx_win = mlx_new_window(data->mlx, data->win_width, data->win_height, "mipinhei - FDF");
+	data->mlx_win = mlx_new_window(data->mlx, data->win_width,
+			data->win_height, "mipinhei - FDF");
 	if (!data->mlx_win)
 		ft_free_data_struct(data);
 	data->img = mlx_new_image(data->mlx, data->win_width, data->win_height);
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_lenght,
-									&data->endian);
+	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
+			&data->line_lenght, &data->endian);
 	data->projection = ISO;
 }

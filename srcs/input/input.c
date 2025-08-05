@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 12:21:24 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/23 12:21:44 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../fdf.h"
-#include <stdio.h>
 
 int	ft_key_press(int keycode, t_data *data)
 {
@@ -9,6 +20,7 @@ int	ft_key_press(int keycode, t_data *data)
 	ft_zoom(data, keycode);
 	ft_reset(data, keycode);
 	ft_scaling(data, keycode);
+	ft_recenter(data, keycode);
 	return (0);
 }
 
@@ -67,12 +79,10 @@ int	ft_zoom(t_data *data, int keycode)
 	if (keycode == PLUS)
 	{
 		data->view.zoom += 2;
-		ft_center_map(data);
 		return (1);
 	}
 	if (keycode == MINUS && data->view.zoom > 2)
 	{
-		ft_center_map(data);
 		data->view.zoom -= 2;
 		return (1);
 	}

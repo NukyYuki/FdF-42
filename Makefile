@@ -18,6 +18,7 @@ SRCS	=	srcs/fdf.c \
 			srcs/free_data/free_data.c \
 			srcs/draw/lines.c \
 			srcs/draw/lines_utils.c \
+			srcs/draw/line_utils2.c \
 			srcs/draw/render.c \
 			srcs/draw/projection.c \
 			srcs/draw/color.c \
@@ -46,14 +47,19 @@ $(NAME): $(MLX) $(OBJS) $(LIBFT) $(GNL_OBJS)
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(MLX):
+$(MLX): 
 	@make -C $(MLXDIR) --no-print-directory
+
+download:
+	@wget https://cdn.intra.42.fr/document/document/36119/minilibx-linux.tgz
+	@tar -xzf minilibx-linux.tgz -C lib
+	@rm -rf minilibx-linux.tgz	
 
 $(LIBFT):
 	@make -C $(LIBFTDIR) --no-print-directory
 
 clean:
-	rm -f $(OBJS) $(GNL_OBJS)
+	@rm -f $(OBJS) $(GNL_OBJS)
 	make -C $(MLXDIR) clean --no-print-directory
 	make -C $(LIBFTDIR) clean --no-print-directory
 
@@ -63,4 +69,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re download

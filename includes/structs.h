@@ -1,13 +1,25 @@
-#ifndef	STRUCTS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 16:11:29 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/29 11:31:54 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct	s_screen_coordinate
+typedef struct s_screen_coordinate
 {
 	int	x;
 	int	y;
 }		t_coordinate;
 
-typedef enum	e_projection
+typedef enum e_projection
 {
 	ISO,
 	ORTO
@@ -16,22 +28,22 @@ typedef enum	e_projection
 typedef struct s_line
 {
 	int	x0;
-	int y0;
-	int x1;
-	int y1;
+	int	y0;
+	int	x1;
+	int	y1;
 	int	color_start;
 	int	color_end;
-	int color;
+	int	color;
 }		t_line;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int	x;
 	int	y;
 	int	z;
 }		t_point;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	t_point	**map_points;
 	int		map_x;
@@ -51,13 +63,13 @@ typedef struct s_view
 	int		x_offset;
 	int		y_offset;
 	int		zoom;
-	float 	angle_x;
+	float	angle_x;
 	float	angle_y;
 	float	angle_z;
 	float	height_scale;
 }			t_view;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void			*mlx;
 	void			*mlx_win;

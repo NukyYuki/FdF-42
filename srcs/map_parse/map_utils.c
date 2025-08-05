@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 11:32:15 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/23 11:39:23 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../fdf.h"
 
 void	ft_map_size(t_data *data, int file)
@@ -28,11 +40,11 @@ void	ft_map_size(t_data *data, int file)
 	free(map_line);
 }
 
-t_point **ft_map_create(int width, int height)
+t_point	**ft_map_create(int width, int height)
 {
-	t_point **points;
+	t_point	**points;
 	int		y;
-	
+
 	y = 0;
 	points = malloc(sizeof(t_point *) * height);
 	if (!points)
@@ -76,18 +88,23 @@ void	ft_map_get_points(t_data *data, int fd)
 			data->map->map_points[y][x].z = ft_atoi(map_points[x]);
 			x++;
 		}
-		free_char_arr(map_points);
-		free(map_line);
+		ft_free_gnl(map_line, map_points);
 		map_line = get_next_line(fd);
 	}
+}
+
+void	ft_free_gnl(char *map_line, char **map_points)
+{
+	free(map_line);
+	free_char_arr(map_points);
 }
 
 void	ft_get_z(t_data *data)
 {
 	int	x;
-	int y;
-	int z;
-	
+	int	y;
+	int	z;
+
 	y = 0;
 	data->map->max_z = INT_MIN;
 	data->map->min_z = INT_MAX;

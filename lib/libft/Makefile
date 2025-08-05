@@ -9,21 +9,21 @@ RM		= rm -f
 CFLAGS	= -Wextra -Werror -Wall
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	${ARRCS} ${NAME} ${OBJS}
+	@${ARRCS} ${NAME} ${OBJS}
 
 all: ${NAME}
 
 bonus: ${NAME}
-		${CC} ${CFLAGS} -c ${BSRCS} 
-		${ARRCS} ${NAME} ${OBJS} ${BOBJS}
+		@${CC} ${CFLAGS} -c ${BSRCS} 
+		@${ARRCS} ${NAME} ${OBJS} ${BOBJS}
 
 clean:
-	${RM} ${OBJS} ${BOBJS}
+	@${RM} ${OBJS} ${BOBJS}
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re: fclean all

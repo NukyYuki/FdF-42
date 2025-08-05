@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 13:14:44 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/23 16:51:52 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../fdf.h"
 
 void	set_background(t_data *data)
 {
 	int	color;
 
-	color = 0x363445;
+	color = 0x1b1a26;
 	draw_background(data, color);
 }
 
@@ -25,11 +37,14 @@ int	interpolate_color(int begin, int end, float percent)
 {
 	int	r;
 	int	g;
-	int b;
+	int	b;
 
-	r = ((begin >> 16) & 0xFF) + percent * (((end >> 16) & 0xFF) - ((begin >> 16) & 0xFF));
-	g = ((begin >> 8) & 0xFF) + percent * (((end >> 8) & 0xFF) - ((begin >> 8) & 0xFF));
-	b = (begin & 0xFF) + percent * ((end & 0xFF) - (begin & 0xFF));
+	r = ((begin >> 16) & 0xFF) + percent
+		* (((end >> 16) & 0xFF) - ((begin >> 16) & 0xFF));
+	g = ((begin >> 8) & 0xFF) + percent
+		* (((end >> 8) & 0xFF) - ((begin >> 8) & 0xFF));
+	b = (begin & 0xFF) + percent
+		* ((end & 0xFF) - (begin & 0xFF));
 	return ((r << 16) | (g << 8) | b);
 }
 
@@ -42,11 +57,13 @@ float	ft_get_percent(int z, int z_min, int z_max)
 
 void	get_color(t_data *data, t_line *line, int z0, int z1)
 {
-	int low_color;
+	int	low_color;
 	int	high_color;
 
-	low_color = 0x301ba8;
-	high_color = 0xf7e11b;
-	line->color_start = interpolate_color(low_color, high_color, ft_get_percent(z0, data->map->min_z, data->map->max_z));
-	line->color_end = interpolate_color(low_color, high_color, ft_get_percent(z1, data->map->min_z, data->map->max_z));
+	low_color = 0x06d6a0;
+	high_color = 0x301ba8;
+	line->color_start = interpolate_color(low_color, high_color,
+			ft_get_percent(z0, data->map->min_z, data->map->max_z));
+	line->color_end = interpolate_color(low_color, high_color,
+			ft_get_percent(z1, data->map->min_z, data->map->max_z));
 }

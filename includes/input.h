@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/23 16:10:32 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/07/23 16:10:49 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INPUT_H
 # define INPUT_H
 
@@ -13,6 +25,7 @@
 # define R		114
 # define S		115
 # define D		100
+# define C		99
 
 int	ft_key_press(int keycode, t_data *data);
 int	ft_close(t_data *data, int keycode);
@@ -21,5 +34,6 @@ int	ft_move(t_data *data, int keycode);
 int	ft_zoom(t_data *data, int keycode);
 int	ft_reset(t_data *data, int keycode);
 int	ft_scaling(t_data *data, int keycode);
+int	ft_recenter(t_data *data, int keycode);
 
 #endif
